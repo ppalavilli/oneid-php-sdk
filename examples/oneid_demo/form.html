@@ -1,0 +1,30 @@
+<script src="https://my.oneid.com/api/js/includeexternal.js"></script>
+<script src="https://my.oneid.com/api/form/form.js"></script>
+<script>
+var billingAddressPostData = {
+      "profile" : "checkout",
+      "templateId" : "",
+      "postFillFunction" : "postAddressFunction",
+      "formData" : {
+         "name" : {
+             "oneid_attribute" :  ["first_name", "last_name"],
+             "oneid_class" : "",
+             "scope" : "oneID",
+             "selector_type" : "base",
+             "format" : "data['first_name'] + \" \" + data['last_name']"
+          },
+       }
+   };
+
+   function postAddressFunction() {
+       console.log("Hello");
+    }
+
+</script>
+
+<form>
+<input id="name"><br>
+
+
+<button name="Load OneId Profile" type="button" onClick="OneIdForm.fill(billingAddressPostData)">Load OneId Profile</button>
+<div id="one-id-form-billing-address" class="one-id-form" />
